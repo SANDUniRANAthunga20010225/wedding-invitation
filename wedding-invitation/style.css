@@ -1,0 +1,148 @@
+body{
+margin:0;
+font-family:'Segoe UI',sans-serif;
+background:rgb(224, 243, 221);
+overflow:hidden;
+color:white;
+}
+
+/* FULL SCREEN ENVELOPE */
+.screen{
+position:fixed;
+top:0;left:0;
+width:100vw;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+background:rgb(224, 243, 221);
+overflow:hidden;
+padding: 
+env(safe-area-inset-top)
+env(safe-area-inset-right)
+env(safe-area-inset-bottom)
+env(safe-area-inset-left);
+}
+
+.envelope-wrapper{
+position:relative;
+width:100vw;
+height:100vh;
+overflow:hidden;
+cursor:pointer;
+background-image:url('/mnt/data/ChatGPT Image May 9, 2026, 10_36_02 AM.png');
+background-size:cover;
+background-position:center;
+background:rgb(0, 0, 0);
+}
+
+/* PANELS */
+.left-panel,.right-panel{
+position:absolute;
+top:0;
+width:100%;
+height:100%;
+transition:1.5s ease;
+backdrop-filter:blur(0px);
+overflow:hidden;
+}
+.left-panel img,
+.right-panel img{
+width:100%;
+height:100%;
+object-fit:cover;
+display:block;
+}
+
+.left-panel{
+left:0;
+z-index:2;
+}
+
+.right-panel{
+right:0;
+z-index:1;
+}
+
+/* DESKTOP OPEN */
+.open .left-panel{transform:translateX(-100%);}
+.open .right-panel{transform:translateX(100%);}
+
+/* MOBILE OPEN FIX */
+@media (max-width:768px){
+.open .left-panel{transform:translateX(-120%);}
+.open .right-panel{transform:translateX(120%);}
+
+}
+
+/* SEAL */
+/* .seal{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+width:85px;
+height:85px;
+border-radius:50%;
+background:linear-gradient(145deg,#d4af37,#8b6b00);
+box-shadow:0 0 18px rgba(212,175,55,0.35);
+z-index:10;
+} */
+
+.seal.break{animation:crack 1s forwards;}
+
+@keyframes crack{
+0%{transform:translate(-50%,-50%) scale(1);}
+50%{transform:translate(-50%,-50%) scale(1.3) rotate(20deg);}
+100%{transform:translate(-50%,-50%) scale(0);opacity:0;}
+}
+
+/* INVITATION */
+.invitation{
+min-height:100vh;
+padding:30px 15px;
+background:linear-gradient(180deg,#0a0a0a,#000);
+animation:fadeIn 1.5s ease;
+}
+
+.hidden{display:none;}
+
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(20px);}
+to{opacity:1;transform:translateY(0);}
+}
+
+.card-luxury{
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(15px);
+border:1px solid rgba(212,175,55,0.4);
+border-radius:20px;
+padding:25px;
+box-shadow:0 0 50px rgba(212,175,55,0.15);
+}
+
+.title{
+font-size:clamp(28px,7vw,45px);
+color:#d4af37;
+font-weight:bold;
+}
+.map-container{
+margin-top:15px;
+}
+
+.map-container iframe{
+width:100%;
+height:100px;
+border:0;
+border-radius:12px;
+}
+/* .btn-warning{
+background:#d4af37;
+border:none;
+color:black;
+font-weight:bold;
+padding:10px 22px;
+border-radius:30px;
+box-shadow:0 0 15px rgba(212,175,55,0.4);
+} */
